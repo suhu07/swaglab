@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 	
-	@FindBy (xpath = "//div[@class='inventory_item_name']")           private List<WebElement> product;
-	@FindBy (xpath = "//a[@class='shopping_cart_link']")              private WebElement cart;
-	@FindBy (xpath = "//button[text()='Add to cart']")                private List<WebElement> addToCart;
-	@FindBy (xpath = "//button[@id='react-burger-menu-btn']")         private WebElement menuButton;
+	@FindBy (xpath = "//div[@class='inventory_item_name']")                         private List<WebElement> product;
+	@FindBy (xpath = "//button[text()='Add to cart']")                              private List<WebElement> addToCart;
+	@FindBy (xpath = "//button[@class='btn btn_primary btn_small btn_inventory']")  private WebElement AddToCart;
+	@FindBy (xpath = "//button[@id='react-burger-menu-btn']")                       private WebElement menuButton;
 	
 	public HomePage (WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -21,16 +21,13 @@ public class HomePage {
 		WebElement value = product.get(i);
 		value.click();
 	}
-	
-	public void clickOnCart() {
-		cart.click();
+	public void clickonAddtocart() {
+		AddToCart.click();
 	}
 	public void clickOnAddTocart(int i) {
 		WebElement item = addToCart.get(i);
 		item.click();
 	}
-	public void clickOnMenuButton() {
-		menuButton.click();
-	}
+	
 
 }
